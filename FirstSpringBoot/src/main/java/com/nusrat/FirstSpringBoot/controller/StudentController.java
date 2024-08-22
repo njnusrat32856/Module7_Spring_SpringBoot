@@ -6,8 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 
 @Controller
 public class StudentController {
@@ -26,7 +29,33 @@ public class StudentController {
     public String saveStudent(@ModelAttribute("student") Student student){
 
         studentService.saveStu(student);
-        return "redirect:/";
+        return "redirect:/showAllStudent";
+    }
+
+    @RequestMapping("/showAllStudent")
+    public String showAllStudent(Model m){
+
+        List<Student> stuList = studentService.getAllStu();
+        m.addAttribute("stuList", stuList);
+        m.addAttribute("title", "Show All Student");
+
+        return "showAllStudent";
+    }
+
+    @RequestMapping("deletestudent/{id}")
+    public String deleteStudent(@PathVariable("id") int id) {
+
+        studentService.deleteById(id);
+        return "redirect:/showAllStudent";
+    }
+
+    @RequestMapping("/editstudent/{id}")
+    public String editStudent(@PathVariable("id") int id, Model m){
+
+        Student s= studentService.findById(id);
+        m.addAttribute("student", s);
+        return "savestudentform";
+
     }
 
 }
