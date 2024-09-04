@@ -20,7 +20,7 @@ public class  StudentRestController {
 
         return studentService.getAllStu();
     }
-
+ 
     @PostMapping("/save")
     public void saveStudent(@RequestBody Student s) {
         studentService.saveStu(s);
