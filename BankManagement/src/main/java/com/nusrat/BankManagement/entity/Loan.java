@@ -18,20 +18,28 @@ public class Loan {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Column(nullable = false)
     private String loanType;
 
+    @Column(nullable = false)
     private Double loanAmount;
 
+    @Column(nullable = false)
     private float interestRate;
 
+    @Column(nullable = false)
     private Double monthlyPayment;
 
+    @Column(nullable = false)
     private Double durationInMonths;
 
+    @Column(nullable = false)
     private Date startDate;
 
+    @Column(nullable = false)
     private Date endDate;
 
+    @Column(nullable = false)
     private boolean status;
 
     @ManyToOne

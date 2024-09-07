@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
+import java.sql.Date;
 
 @Entity
 @Data
@@ -18,16 +18,21 @@ public class Account {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Column(unique = true, nullable = false)
     private String accountNumber;
 
+    @Column(nullable = false)
     private String accountType;
 
+    @Column(nullable = false)
     private Date createDate;
+
 
     private boolean status;
 
     @ManyToOne
     @JoinColumn(name = "userId")
     private User user;
+
 
 }

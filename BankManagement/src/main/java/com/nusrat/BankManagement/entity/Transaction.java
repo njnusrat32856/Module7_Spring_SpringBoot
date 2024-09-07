@@ -19,16 +19,21 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Column(nullable = false)
     private LocalDateTime transationDate;
 
+    @Column(nullable = false)
     private double amount;
 
+    @Column(nullable = false)
     private String transactionType;
 
     private String description;
 
+    @Column(nullable = false)
     private double targetAccountNumber;
 
+    @Column(nullable = false)
     private boolean status;
 
     @ManyToOne(fetch = FetchType.EAGER)
