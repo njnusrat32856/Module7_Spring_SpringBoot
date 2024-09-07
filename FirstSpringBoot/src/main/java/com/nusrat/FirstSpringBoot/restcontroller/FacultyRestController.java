@@ -30,6 +30,7 @@ public class FacultyRestController {
         facultyService.deleteFacultyById(id);
     }
 
+    @PutMapping("/update")
     public void updateFaculty(@RequestBody Faculty f){
         facultyService.updateFaculty(f);
     }
