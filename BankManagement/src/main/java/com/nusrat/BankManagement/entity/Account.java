@@ -26,6 +26,8 @@ public class Account {
 
     private boolean status;
 
-
+    @ManyToOne
+    @JoinColumn(name = "userId")
+    private User user;
 
 }
