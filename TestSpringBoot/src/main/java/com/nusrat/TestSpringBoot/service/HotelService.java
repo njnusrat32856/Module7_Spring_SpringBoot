@@ -7,6 +7,7 @@ import com.nusrat.TestSpringBoot.repository.LocationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
@@ -34,6 +35,7 @@ public class HotelService {
         return hotelRepository.findAll();
     }
 
+    @Transactional
     public void saveHotel(Hotel hotel, MultipartFile imageFile) throws IOException {
 
         Location location = locationRepository.findById(hotel.getLocation().getId())
