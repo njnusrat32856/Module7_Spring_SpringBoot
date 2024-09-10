@@ -35,11 +35,18 @@ public class HotelController {
         return ResponseEntity.ok(hotels);
     }
 
-//    public ResponseEntity<List<Hotel>> findHotelByLocation(
-//            @RequestParam(value = "locationName") String locationName
-//    ) {
-//        List<Hotel> hotels = hotelService.findHotelByLocation(locationName);
-//        return ResponseEntity.ok(hotels);
-//    }
+    @GetMapping("/h/searchhotel")
+    public ResponseEntity<List<Hotel>> findHotelByLocationName(
+            @RequestParam(value = "locationName") String locationName
+    ) {
+        List<Hotel> hotels = hotelService.findHotelByLocationName(locationName);
+        return ResponseEntity.ok(hotels);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Hotel> findHotelById(@PathVariable int id) {
+        Hotel hotel = hotelService.findHotelById(id);
+        return ResponseEntity.ok(hotel);
+    }
 
 }

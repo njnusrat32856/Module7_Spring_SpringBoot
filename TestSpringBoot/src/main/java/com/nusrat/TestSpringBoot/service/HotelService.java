@@ -80,4 +80,8 @@ public class HotelService {
         return filename;
     }
 
+    public List<Hotel> findHotelByLocationName(String locationName) {
+        return hotelRepository.findHotelByLocationName(locationName);
+    }
+
 }
