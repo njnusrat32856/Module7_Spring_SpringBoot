@@ -36,7 +36,7 @@ public class AccountService {
         return accountRepository.findAll();
     }
 
-    public Account depositAmount(@PathVariable Long accountNumber, @PathVariable Double amount) {
+    public Account depositAmount(Long accountNumber, Double amount) {
         Optional<Account> account = accountRepository.findById(accountNumber);
 
         if (account.isEmpty()) {

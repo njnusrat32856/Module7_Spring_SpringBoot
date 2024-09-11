@@ -36,7 +36,8 @@ public class AccountController {
     }
 
     @PutMapping("/deposit/{accountNumber}/{amount}")
-    public Account depositAccount(Long accountNumber, Double amount) {
-        return accountService.depositAmount(accountNumber,amount);
+    public Account depositAccount(@PathVariable Long accountNumber, @PathVariable Double amount) {
+        Account account = accountService.depositAmount(accountNumber,amount);
+        return account;
     }
 }
