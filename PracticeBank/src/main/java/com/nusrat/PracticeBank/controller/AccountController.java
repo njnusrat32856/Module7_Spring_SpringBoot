@@ -40,4 +40,17 @@ public class AccountController {
         Account account = accountService.depositAmount(accountNumber,amount);
         return account;
     }
+
+    @PutMapping("/withdraw/{accountNumber}/{amount}")
+    public Account withdrawAccount(@PathVariable Long accountNumber,@PathVariable Double amount) {
+        return accountService.withdrawAmount(accountNumber,amount);
+    }
+
+    @DeleteMapping("/delete/{accountNumber}")
+    public ResponseEntity<String> deleteAccount(@PathVariable Long accountNumber) {
+
+        accountService.closeAccount(accountNumber);
+
+        return ResponseEntity.ok("Account has been closed");
+    }
 }

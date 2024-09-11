@@ -52,10 +52,21 @@ public class AccountService {
     }
 
     public Account withdrawAmount(Long accountNumber, Double amount) {
-        return null;
+        Optional<Account> account = accountRepository.findById(accountNumber);
+
+        if (account.isEmpty()) {
+            throw new RuntimeException("Account not present");
+        }
+        Account accountPresent = account.get();
+        Double accountBalance = accountPresent.getAccountBalance()-amount;
+        accountPresent.setAccountBalance(accountBalance);
+
+        return accountRepository.save(accountPresent);
     }
 
     public void closeAccount(Long accountNumber) {
 
+        getAccountDetailsByAccountNumber(accountNumber);
+        accountRepository.deleteById(accountNumber);
     }
 }
