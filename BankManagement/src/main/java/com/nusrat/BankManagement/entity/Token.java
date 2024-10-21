@@ -5,27 +5,24 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.sql.Date;
-
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "accounts")
-public class Account {
+public class Token {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "id")
+    private long id;
 
-    @Column(nullable = false)
-    private String accountType;
+    private String token;
 
+    @Column(name = "is_logged_out")
+    private boolean loggedOut;
 
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "userId")
+    @ManyToOne
+    @JoinColumn(name = "user_id")
     private User user;
-
 
 }

@@ -16,7 +16,7 @@ public class Loan {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
 
     @Column(nullable = false)
     private String loanType;
@@ -31,7 +31,10 @@ public class Loan {
     private Double monthlyPayment;
 
     @Column(nullable = false)
-    private Double durationInMonths;
+    private int durationInMonths;
+
+    @Column(nullable = false)
+    private double balanceRemaining;
 
     @Column(nullable = false)
     private Date startDate;
@@ -40,9 +43,11 @@ public class Loan {
     private Date endDate;
 
     @Column(nullable = false)
-    private boolean status;
+    private String status;
 
-    @ManyToOne
+    private double paymentsMade;
+
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "userId")
-    private Loan loan;
+    private User user;
 }

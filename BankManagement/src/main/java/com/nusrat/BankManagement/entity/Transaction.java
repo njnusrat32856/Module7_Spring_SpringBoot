@@ -17,26 +17,36 @@ public class Transaction {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
 
     @Column(nullable = false)
-    private LocalDateTime transationDate;
+    private LocalDateTime transactionDate;
 
-    @Column(nullable = false)
     private double amount;
+    private double balance;
 
-    @Column(nullable = false)
-    private String transactionType;
+    @Enumerated(EnumType.STRING)
+    private TransactionType transactionType;
 
     private String description;
 
-    @Column(nullable = false)
+
     private double targetAccountNumber;
 
-    @Column(nullable = false)
-    private boolean status;
+    private String status;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "accountId")
     private Account account;
+
+
+
+
+    public enum TransactionType {
+
+        DEPOSIT,
+        WITHDRAW,
+        FUND_TRANSFER
+//    TRANSFER
+    }
 }
