@@ -20,7 +20,7 @@ public class AccountService {
                 orElseThrow(() -> new RuntimeException("Account not found"));
     }
 
-    public List<Account> getAccountByCustomerId(long customerId) {
+    public List<Account> getAccountsByCustomerId(long customerId) {
         return accountRepository.findByCustomerId(customerId);
     }
 

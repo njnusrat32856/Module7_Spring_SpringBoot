@@ -11,5 +11,7 @@ public interface DepartmentRepository extends JpaRepository<Department, Long> {
 
     List<Department> findByDepartmentName(String departmentName);
 
-    List<Department> findByBranch(String branch);
+//    List<Department> findByBranch(String branch);
+
+    List<Department> findByBranchId(Long branchId); // Find departments by branch ID
 }

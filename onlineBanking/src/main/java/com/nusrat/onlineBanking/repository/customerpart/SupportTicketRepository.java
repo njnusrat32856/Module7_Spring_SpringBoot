@@ -10,7 +10,7 @@ import java.util.Optional;
 @Repository
 public interface SupportTicketRepository extends JpaRepository<SupportTicket, Long> {
 
-    List<SupportTicket> findByCustomerId(int customerId);
+    List<SupportTicket> findByCustomerId(long customerId);
 
     Optional<SupportTicket> findByCustomerIdAndTicketId(int customerId, int ticketId);
 }

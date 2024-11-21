@@ -10,9 +10,9 @@ import java.util.List;
 @Repository
 public interface NotificationRepository extends JpaRepository<Notification, Long> {
 
-    List<Notification> findByCustomerId(int customerId);
+    List<Notification> findByCustomerId(long customerId);
 
-    List<Notification> findByEmployee(int employeeId);
+    List<Notification> findByEmployeeId(long employeeId);
 
-    List<Notification> findByCustomerId(int customerId, Pageable pageable);
+    List<Notification> findByCustomerId(long customerId, Pageable pageable);
 }
