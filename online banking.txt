@@ -1,0 +1,76 @@
+>> Entities Overview
+1. Shared Entities
+These entities are used across multiple parts of the system- Branch,Department,Account,Loan,Transaction,Notification
+2. Admin Part
+Manages branches, departments, employees, settings, and oversees operations- Admin,Settings
+3. Employee Part
+Focuses on customer management, loan approval, and handling customer queries- Employee
+4. Customer Part
+Allows customers to manage their accounts, apply for loans, and raise support tickets- Customer,SupportTicket
+
+
+>>Entity Relationships Overview
+Entity----------Relationships
+Branch----------Employees, Departments, Accounts
+Department------Employees
+Account---------Customer, Transactions
+Loan------------Customer, Employee
+Transaction-----Account
+Notification----Customer, Employee
+Admin-----------None
+Employee--------Branch, Department
+Customer--------Accounts, Loans
+SupportTicket---Customer, Employee
+
+
+Admin Features:
+The admin part includes:
+1.Branch Management
+2.Department Management
+3.Employee Management
+4.Loan Oversight
+5.Report & Analytics
+6.Transaction Logs
+7.Settings
+
+Customer Features:
+The customer part includes:
+
+1.Account Management: View account details (balance, type, transactions). Update personal details.
+2.Loan Applications: Apply for new loans. View loan status and repayment schedule.
+3.Transactions: Deposit, withdraw, transfer money. View transaction history.
+4.Notifications: Receive notifications for transactions, loan updates, etc.
+5.Customer Support: Raise support tickets. Chat or interact with support staff.
+6.Reports:View account statements, loan summaries, etc.
+
+Database Schema Summary(Employee Part)
+Entity > Relationships - Key Attributes
+Employee > Branch, Department - name, email, role, active
+Branch > Departments, Employees - branchName, location
+Department > Branch, Employees - departmentName
+Customer > Accounts, Loans - name, email, phoneNumber, address
+Account > Customer, Employee - accountNumber, balance
+Loan > Customer, Employee - loanAmount, interestRate, status
+Notification > Employee - message, read, createdAt
+Transaction > Account, Employee	- amount, type, status
+Report > Employee - title, description, generatedAt
+
+Database Schema Summary(Admin Part)
+Entity > Relationships - Key Attributes
+Admin > Branch, Notification, Settings -name, email, password, superAdmin
+Branch > Employees, Departments - branchName, location
+Department > Branch, Employees - departmentName
+Employee > Branch, Department - name, email, role, active
+Transaction > Account, Employee, Admin - transactionType, amount, status
+AdminNotification > Admin - message, read, createdAt
+Settings > None - key, value, editable
+
+
+Database Schema Summary(Customer Part)
+Entity > Relationships - Key Attributes
+Customer > Accounts, Loans, Tickets - name, email, phoneNumber, address
+Account > Customer, Transactions - accountNumber, balance, accountType
+Loan > Customer, Employee - loanAmount, status, balanceRemaining
+Transaction > Customer, Account - transactionType, amount, status
+CustomerNotification > Customer - message, read, createdAt
+SupportTicket > Customer, Employee - issue, status, createdAt, updatedAt
