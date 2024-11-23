@@ -21,7 +21,7 @@ public class AccountService {
     }
 
     public List<Account> getAccountsByCustomerId(long customerId) {
-        return accountRepository.findByCustomerId(customerId);
+        return accountRepository.findAccountByCustomerId(customerId);
     }
 
     public Account createAccount(Account account) {

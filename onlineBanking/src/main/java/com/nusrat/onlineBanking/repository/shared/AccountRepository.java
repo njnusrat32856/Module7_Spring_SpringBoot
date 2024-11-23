@@ -11,14 +11,16 @@ import java.util.List;
 @Repository
 public interface AccountRepository extends JpaRepository<Account, Long> {
 
-    List<Account> findByAccountNumber(String accountNumber);
+//    List<Account> findByAccountNumber(String accountNumber);
 
-    List<Account> findByCustomerId(Long customerId);
+    @Query("SELECT a FROM Account a WHERE a.customerId.id = :customerId")
+    List<Account> findAccountByCustomerId(long customerId);
 
-    List<Account> findBYBranchId(Long branchId);
+//    List<Account> findBYBranchId(Long branchId);
 
-    List<Account> findByAccountType(String accountType);
+//    List<Account> findByAccountType(String accountType);
 
-    @Query("SELECT a FROM Account a WHERE a.customer.id = :customerId AND a.balance > :minBalance")
-    List<Account> findHighValueAccounts(@Param("customerId") Long customerId, @Param("minBalance") double minBalance);
+//    @Query("SELECT a FROM Account a WHERE a.customer.id = :customerId AND a.balance > :minBalance")
+//    List<Account> findHighValueAccounts(@Param("customerId") Long customerId, @Param("minBalance") double minBalance);
+
 }

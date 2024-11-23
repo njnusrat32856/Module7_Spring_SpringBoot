@@ -1,7 +1,7 @@
 package com.nusrat.onlineBanking.controller.adminpart;
 
 import com.nusrat.onlineBanking.entities.adminPart.Settings;
-import com.nusrat.onlineBanking.service.adminpart.SettingsService;
+import com.nusrat.onlineBanking.service.adminPart.SettingsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,4 +1,4 @@
-package com.nusrat.onlineBanking.service.adminpart;
+package com.nusrat.onlineBanking.service.adminPart;
 
 import com.nusrat.onlineBanking.entities.adminPart.Admin;
 import com.nusrat.onlineBanking.repository.adminpart.AdminRepository;

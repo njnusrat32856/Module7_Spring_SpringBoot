@@ -2,6 +2,7 @@ package com.nusrat.onlineBanking.entities.customerPart;
 
 import com.nusrat.onlineBanking.entities.sharedEntities.Account;
 import com.nusrat.onlineBanking.entities.sharedEntities.Loan;
+import com.nusrat.onlineBanking.entities.sharedEntities.Notification;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,7 +19,7 @@ public class Customer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
 
     @Column(nullable = false)
     private String name;
@@ -35,9 +36,13 @@ public class Customer {
     @Column(nullable = false)
     private String address;
 
-    @OneToMany(mappedBy = "customer")
+    @OneToMany(mappedBy = "customerId")
     private List<Account> accounts;
 
-    @OneToMany(mappedBy = "customer")
+    @OneToMany(mappedBy = "customerId")
     private List<Loan> loans;
+
+    @OneToMany(mappedBy = "customer")
+    private List<Notification> notifications;
+
 }

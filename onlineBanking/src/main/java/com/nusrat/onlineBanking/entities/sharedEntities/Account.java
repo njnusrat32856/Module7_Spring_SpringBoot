@@ -17,7 +17,7 @@ public class Account {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
 
     @Column(nullable = false, unique = true)
     private String accountNumber;
@@ -32,7 +32,8 @@ public class Account {
     private Branch branch;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    private Customer customer;
+    @JoinColumn(name = "customer_id", nullable = false)
+    private Customer customerId;
 
 //    @ManyToOne(fetch = FetchType.EAGER)
 //    private Employee managedBy; // Employee managing this account

@@ -14,9 +14,9 @@ public class Settings {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
 
-    @Column(nullable = false)
+    @Column(name = "setting_key", nullable = false, unique = true)
     private String key; // E.g., "MaxLoanLimit", "TransactionFeeRate"
 
     @Column(nullable = false)
@@ -26,5 +26,5 @@ public class Settings {
     private String description;
 
     @Column(nullable = false)
-    private boolean editable; // Indicates if the setting can be changed by admins
+    private boolean isEditable; // Indicates if the setting can be changed by admins
 }

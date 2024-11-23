@@ -24,7 +24,7 @@ public class LoanService {
     }
 
     public List<Loan> getLoanByCustomerId(long customerId) {
-        return loanRepository.findByCutomerId(customerId);
+        return loanRepository.findByCustomer_Id(customerId);
     }
 
     public Loan applyForLoan(Loan loan) {

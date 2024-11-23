@@ -2,10 +2,13 @@ package com.nusrat.onlineBanking.entities;
 
 import com.nusrat.onlineBanking.entities.sharedEntities.Branch;
 import com.nusrat.onlineBanking.entities.sharedEntities.Department;
+import com.nusrat.onlineBanking.entities.sharedEntities.Notification;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Entity
 @Data
@@ -16,7 +19,7 @@ public class Employee {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
 
     @Column(nullable = false)
     private String name;
@@ -38,4 +41,8 @@ public class Employee {
 
     @Column(nullable = false)
     private boolean active; // Indicates if the employee is active
+
+    @OneToMany(mappedBy = "employee")
+    private List<Notification> notifications;
+
 }

@@ -1,4 +1,4 @@
-package com.nusrat.onlineBanking.service.customerpart;
+package com.nusrat.onlineBanking.service.customerPart;
 
 import com.nusrat.onlineBanking.entities.customerPart.Customer;
 import com.nusrat.onlineBanking.repository.customerpart.CustomerRepository;

@@ -17,7 +17,7 @@ public interface SettingsRepository extends JpaRepository<Settings, Long> {
 
     Optional<Settings> findByKey(String key);
 
-    @Query("SELECT s FROM Settings s WHERE s.editable = true")
+    @Query("SELECT s FROM Settings s WHERE s.isEditable = true")
     List<Settings> findAllEditableSettings();
 
 }

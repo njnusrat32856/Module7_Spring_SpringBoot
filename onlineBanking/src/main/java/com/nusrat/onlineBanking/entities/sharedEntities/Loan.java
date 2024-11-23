@@ -16,7 +16,7 @@ public class Loan {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
 
     @Column(nullable = false)
     private double loanAmount;
@@ -31,7 +31,8 @@ public class Loan {
     private double balanceRemaining;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    private Customer customer;
+    @JoinColumn(name = "customer_id", nullable = false)
+    private Customer customerId;
 
     @ManyToOne(fetch = FetchType.EAGER)
     private Employee approvedBy; // Employee approving the loan

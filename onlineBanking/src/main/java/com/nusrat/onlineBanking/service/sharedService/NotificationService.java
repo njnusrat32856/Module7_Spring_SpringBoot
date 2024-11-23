@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import static java.time.LocalDateTime.*;
+
 @Service
 public class NotificationService {
 
@@ -15,15 +17,15 @@ public class NotificationService {
     private NotificationRepository notificationRepository;
 
     public List<Notification> getNotificationsByCustomerId(Long customerId) {
-        return notificationRepository.findByCustomerId(customerId);
+        return notificationRepository.findNotificationByCustomerId(customerId);
     }
 
     public List<Notification> getNotificationsByEmployeeId(Long employeeId) {
-        return notificationRepository.findByEmployeeId(employeeId);
+        return notificationRepository.findByEmployee_Id(employeeId);
     }
 
     public Notification createNotification(Notification notification) {
-        notification.setCreatedAt(LocalDateTime.now());
+        notification.setCreatedAt(now());
         notification.setRead(false);
         return notificationRepository.save(notification);
     }

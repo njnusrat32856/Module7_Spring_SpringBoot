@@ -12,5 +12,5 @@ public interface SupportTicketRepository extends JpaRepository<SupportTicket, Lo
 
     List<SupportTicket> findByCustomerId(long customerId);
 
-    Optional<SupportTicket> findByCustomerIdAndTicketId(int customerId, int ticketId);
+//    Optional<SupportTicket> findByCustomerIdAndTicketId(int customerId, int ticketId);
 }

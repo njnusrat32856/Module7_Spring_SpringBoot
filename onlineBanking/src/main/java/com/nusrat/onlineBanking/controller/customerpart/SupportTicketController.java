@@ -1,7 +1,7 @@
 package com.nusrat.onlineBanking.controller.customerpart;
 
 import com.nusrat.onlineBanking.entities.customerPart.SupportTicket;
-import com.nusrat.onlineBanking.service.customerpart.SupportTicketService;
+import com.nusrat.onlineBanking.service.customerPart.SupportTicketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
