@@ -54,7 +54,7 @@ public class BookingService {
     }
 
     public Booking createBooking(Booking booking) {
-        // Generate unique booking reference
+        // generate unique booking reference
         booking.setBookingReference(generateBookingReference());
         booking.setBookingDate(LocalDateTime.now());
         booking.setBookingStatus("PENDING");
